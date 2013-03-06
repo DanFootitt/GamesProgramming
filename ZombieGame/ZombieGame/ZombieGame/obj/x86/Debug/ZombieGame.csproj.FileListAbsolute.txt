@@ -1,0 +1,16 @@
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.csprojResolveAssemblyReference.cache
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crosshair.xnb
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\player.xnb
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\ZombieGame.exe
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\ZombieGame.pdb
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.exe
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.pdb
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet.xnb
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\spider.xnb
+c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_dirt_texture.xnb
+C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_grass_texture.xnb
+C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_ground_texture.xnb
+C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_mud_texture.xnb
+C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_road_texture.xnb

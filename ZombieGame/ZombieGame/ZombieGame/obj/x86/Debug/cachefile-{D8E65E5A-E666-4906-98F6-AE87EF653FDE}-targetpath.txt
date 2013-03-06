@@ -1,0 +1,10 @@
+Content\crosshair.xnb
+Content\player.xnb
+Content\bullet.xnb
+Content\spider.xnb
+Content\SpriteFont1.xnb
+Content\Tiles\se_free_dirt_texture.xnb
+Content\Tiles\se_free_grass_texture.xnb
+Content\Tiles\se_free_ground_texture.xnb
+Content\Tiles\se_free_mud_texture.xnb
+Content\Tiles\se_free_road_texture.xnb
