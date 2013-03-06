@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crosshair.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crosshair.xnb</Output>
       <Time>2013-02-05T18:01:26.9189622+00:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\player.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\player.xnb</Output>
       <Time>2013-02-05T18:06:08.7674963+00:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet.xnb</Output>
       <Time>2013-02-05T19:14:40.9219442+00:00</Time>
     </Item>
     <Item>
@@ -34,17 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\spider.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\spider.xnb</Output>
       <Time>2013-02-06T00:44:38.9185729+00:00</Time>
-    </Item>
-    <Item>
-      <Source>SpriteFont1.spritefont</Source>
-      <Name>SpriteFont1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>c:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2013-02-06T12:21:40.806709+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\se_free_dirt_texture.jpg</Source>
@@ -52,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_dirt_texture.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_dirt_texture.xnb</Output>
       <Time>2013-03-06T13:08:38.6745887+00:00</Time>
     </Item>
     <Item>
@@ -61,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_grass_texture.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_grass_texture.xnb</Output>
       <Time>2013-03-06T13:08:38.6765883+00:00</Time>
     </Item>
     <Item>
@@ -70,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_ground_texture.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_ground_texture.xnb</Output>
       <Time>2013-03-06T13:08:38.6805898+00:00</Time>
     </Item>
     <Item>
@@ -79,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_mud_texture.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_mud_texture.xnb</Output>
       <Time>2013-03-06T13:08:38.6825869+00:00</Time>
     </Item>
     <Item>
@@ -88,8 +79,35 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_road_texture.xnb</Output>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_road_texture.xnb</Output>
       <Time>2013-03-06T13:08:38.6845894+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\blood.png</Source>
+      <Name>Tiles\blood</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\blood.xnb</Output>
+      <Time>2013-03-06T14:19:54.1035162+00:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2013-02-06T12:21:40.806709+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\rock.png</Source>
+      <Name>Tiles\rock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\rock.xnb</Output>
+      <Time>2013-03-06T14:27:50.7107353+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -97,10 +115,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

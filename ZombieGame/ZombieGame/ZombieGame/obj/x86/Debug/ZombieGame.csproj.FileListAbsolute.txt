@@ -14,3 +14,21 @@ C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieG
 C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_ground_texture.xnb
 C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_mud_texture.xnb
 C:\Users\Dan\Documents\Visual Studio 2010\Projects\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_road_texture.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crosshair.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\player.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\spider.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_dirt_texture.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_grass_texture.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_ground_texture.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_mud_texture.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_road_texture.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\blood.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\ZombieGame.exe
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\ZombieGame.pdb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.exe
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.pdb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\rock.xnb

@@ -35,8 +35,10 @@ namespace ZombieGame
         Texture2D tileGrass;
         Texture2D tileMud;
         Texture2D tileGround;
+        Texture2D tileHand;
 
         List<Texture2D> tileList = new List<Texture2D>();
+        List<Texture2D> tileList2 = new List<Texture2D>();
 
         int[,] tileMap = new int[,]
             {
@@ -51,6 +53,21 @@ namespace ZombieGame
                 {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
                 {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
                 {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
+            };
+
+        int[,] tileMap2 = new int[,]
+            {
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
             };
 
         int tileWidth = 64;
@@ -116,11 +133,16 @@ namespace ZombieGame
             tileGrass = Content.Load<Texture2D>("Tiles/se_free_grass_texture");
             tileGround = Content.Load<Texture2D>("Tiles/se_free_ground_texture");
             tileMud = Content.Load<Texture2D>("Tiles/se_free_mud_texture");
+            
 
             tileList.Add(tileDirt);
             tileList.Add(tileMud);
             tileList.Add(tileGround);
             tileList.Add(tileGrass);
+
+
+            tileHand = Content.Load<Texture2D>("Tiles/blood");
+            tileList2.Add(tileHand);
 
 
 
@@ -245,6 +267,27 @@ namespace ZombieGame
                     spriteBatch.Draw(text, new Rectangle(x * tileWidth - (int)cameraPosition.X, y * tileHeight - (int)cameraPosition.Y, tileWidth, tileHeight), Color.White);
                 }
             }
+
+            int tileMapWidth2 = tileMap2.GetLength(1);
+            int tileMapHeight2 = tileMap2.GetLength(0);
+
+            for (int x = 0; x < tileMapWidth2; x++)
+            {
+                for (int y = 0; y < tileMapHeight2; y++)
+                {
+                    int textIndex = tileMap2[y, x];
+
+                    if (textIndex == -1)
+                    {
+                        continue;
+                    }
+
+                    Texture2D text = tileList2[textIndex];
+
+                    spriteBatch.Draw(text, new Rectangle(x * tileWidth - (int)cameraPosition.X, y * tileHeight - (int)cameraPosition.Y, tileWidth, tileHeight), Color.White);
+                }
+            }
+
 
             spriteBatch.DrawString(spriteFont, "Player Health : " + player._health.ToString(), new Vector2(10, 10), Color.White);
 
