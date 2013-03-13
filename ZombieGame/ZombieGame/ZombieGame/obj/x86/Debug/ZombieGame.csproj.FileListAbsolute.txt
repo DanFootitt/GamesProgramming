@@ -32,3 +32,10 @@ C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\
 C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.exe
 C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\obj\x86\Debug\ZombieGame.pdb
 C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\rock.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\ZombieGreen.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\splashscreen2.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalkcycle.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crate.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\cursor.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet2.xnb
+C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalk.xnb

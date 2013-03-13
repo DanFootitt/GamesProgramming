@@ -27,9 +27,10 @@ namespace ZombieGame
         Texture2D _bulletTexture;
         public int MAX_SHOTS;
         public List<Bullet> bulletList;
+        AnimatedSprite playerSprite;
 
 
-        public Player(Texture2D playerTexture, Texture2D mouseTexture, Vector2 playerPos, Texture2D bulletText)
+        public Player(Texture2D playerTexture, Texture2D mouseTexture, Vector2 playerPos, Texture2D bulletText, AnimatedSprite animatedSprite)
         {
             _mouse = new Mouse(mouseTexture);
             _playerTexture = playerTexture;
@@ -40,15 +41,16 @@ namespace ZombieGame
             MAX_SHOTS = 5;
             _bulletTexture = bulletText;
             bulletList = new List<Bullet>();
+            playerSprite = animatedSprite;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             
             //Calculate Sprite Rotation
             Vector2 direction = _playerPos - _mouse.position;
             direction.Normalize();
-            _playerRot = (float)Math.Atan2(direction.Y, direction.X) - (float)(Math.PI*0.5f);
+            _playerRot = (float)Math.Atan2(direction.Y, direction.X) + (float)(Math.PI * 0.5f);
 
             //implement movement - INCLUDE INPUT CLASS
             previous = current;
@@ -88,7 +90,8 @@ namespace ZombieGame
                 removeBullets(bulletList);
             }
 
- 
+
+            playerSprite.Update(gameTime);
 
             _mouse.Update();
 
@@ -105,9 +108,8 @@ namespace ZombieGame
                     b.Draw(spriteBatch);
                 }
             }
-            spriteBatch.Begin();
-            spriteBatch.Draw(_playerTexture, _playerPos, null, Microsoft.Xna.Framework.Color.White, _playerRot, new Vector2(_playerTexture.Width, _playerTexture.Height), 0.5f, SpriteEffects.None, 0);
-            spriteBatch.End();
+
+            playerSprite.Draw(spriteBatch, _playerPos, _playerRot);
         }
 
         public void removeBullets(List<Bullet> list)

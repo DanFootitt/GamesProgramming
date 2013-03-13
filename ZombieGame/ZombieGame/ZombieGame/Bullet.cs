@@ -28,15 +28,11 @@ namespace ZombieGame
             this._bulletText = bulletText;
             _isOutOfBounds = false;
             _bulletPos = player._playerPos;
-            if (mouse.position.X > _bulletPos.X) _bulletPos.Y -= 80;
-            else if (mouse.position.X < _bulletPos.X) _bulletPos.Y -= 10;
-            else _bulletPos.Y += bulletText.Width / 2;
-            _bulletPos.Y += 50;
             _bulletDir = _bulletPos - mouse.position;
             _bulletDir.Normalize();
-            _bulletRot = (float)Math.Atan2(_bulletDir.Y, _bulletDir.X);
+            _bulletRot = (float)Math.Atan2(_bulletDir.Y, _bulletDir.X) + (float)(Math.PI * 0.5f);
         }
-
+        
 
         public void Update(Player player, Mouse mouse)
         {
@@ -57,7 +53,7 @@ namespace ZombieGame
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(_bulletText, _bulletPos, null, Microsoft.Xna.Framework.Color.White, _bulletRot, new Vector2(_bulletText.Width, _bulletText.Height), 0.5f, SpriteEffects.None, 0);
+            spriteBatch.Draw(_bulletText, _bulletPos, null, Microsoft.Xna.Framework.Color.White, _bulletRot, new Vector2(_bulletText.Width, _bulletText.Height), 3.0f, SpriteEffects.None, 0);
             spriteBatch.End();
             
         }

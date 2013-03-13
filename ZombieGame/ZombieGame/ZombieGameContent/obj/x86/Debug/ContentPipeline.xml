@@ -109,6 +109,69 @@
       <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\rock.xnb</Output>
       <Time>2013-03-06T14:27:50.7107353+00:00</Time>
     </Item>
+    <Item>
+      <Source>ZombieGreen.png</Source>
+      <Name>ZombieGreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\ZombieGreen.xnb</Output>
+      <Time>2013-03-13T18:33:22.9968527+00:00</Time>
+    </Item>
+    <Item>
+      <Source>splashscreen2.png</Source>
+      <Name>splashscreen2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\splashscreen2.xnb</Output>
+      <Time>2013-03-13T17:53:58.9200934+00:00</Time>
+    </Item>
+    <Item>
+      <Source>manwalkcycle.png</Source>
+      <Name>manwalkcycle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalkcycle.xnb</Output>
+      <Time>2013-03-13T20:57:17.0468548+00:00</Time>
+    </Item>
+    <Item>
+      <Source>crate.png</Source>
+      <Name>crate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crate.xnb</Output>
+      <Time>2013-03-13T20:00:31.1156704+00:00</Time>
+    </Item>
+    <Item>
+      <Source>cursor.png</Source>
+      <Name>cursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\cursor.xnb</Output>
+      <Time>2013-03-13T19:59:46.8946606+00:00</Time>
+    </Item>
+    <Item>
+      <Source>bullet2.png</Source>
+      <Name>bullet2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet2.xnb</Output>
+      <Time>2013-03-13T20:08:02.083636+00:00</Time>
+    </Item>
+    <Item>
+      <Source>manwalk.png</Source>
+      <Name>manwalk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalk.xnb</Output>
+      <Time>2013-03-13T20:59:15.6562765+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

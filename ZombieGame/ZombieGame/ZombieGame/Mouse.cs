@@ -78,7 +78,7 @@ namespace ZombieGame
         public void Draw(SpriteBatch spriteBatch) 
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position, null, Microsoft.Xna.Framework.Color.White, 0.0f , new Vector2(texture.Width / 2, texture.Height/ 2), 3.0f, SpriteEffects.None, 0);
             spriteBatch.End();
         }
 

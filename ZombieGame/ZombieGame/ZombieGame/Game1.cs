@@ -40,6 +40,7 @@ namespace ZombieGame
         List<Texture2D> tileList = new List<Texture2D>();
         List<Texture2D> tileList2 = new List<Texture2D>();
 
+
         int[,] tileMap = new int[,]
             {
                 {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
@@ -68,6 +69,21 @@ namespace ZombieGame
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
+            };
+
+        int[,] enemyMap = new int[,]
+            {
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
             };
 
         int tileWidth = 64;
@@ -108,22 +124,22 @@ namespace ZombieGame
             enemyDeleteList = new List<Enemy>();
             bulletDeleteList = new List<Bullet>();
             playerTexture = Content.Load<Texture2D>("player");
-            mouseTexture = Content.Load<Texture2D>("crosshair");
-            bulletTexture = Content.Load<Texture2D>("bullet");
-            enemyTexture = Content.Load<Texture2D>("spider");
+            mouseTexture = Content.Load<Texture2D>("cursor");
+            bulletTexture = Content.Load<Texture2D>("bullet2");
+            enemyTexture = Content.Load<Texture2D>("ZombieGreen");
 
             enemyList = new List<Enemy>();
             enemyList.Add(new Enemy(enemyTexture, new Vector2(500, 500)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(500, 10)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(200, 200)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(100, 500)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(200, 10)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(300, 200)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(400, 500)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(500, 10)));
-            enemyList.Add(new Enemy(enemyTexture, new Vector2(600, 200)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(500, 10)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(200, 200)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(100, 500)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(200, 10)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(300, 200)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(400, 500)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(500, 10)));
+            //enemyList.Add(new Enemy(enemyTexture, new Vector2(600, 200)));
 
-            player = new Player(playerTexture, mouseTexture, new Vector2(200, 200), bulletTexture);
+            
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -141,10 +157,11 @@ namespace ZombieGame
             tileList.Add(tileGrass);
 
 
-            tileHand = Content.Load<Texture2D>("Tiles/blood");
+            tileHand = Content.Load<Texture2D>("crate");
             tileList2.Add(tileHand);
 
-
+            Texture2D playerText = Content.Load<Texture2D>("manwalk");
+            player = new Player(playerTexture, mouseTexture, new Vector2(200, 200), bulletTexture, new AnimatedSprite(playerText, 1, 2, 0.5f));
 
         }
 
@@ -213,9 +230,9 @@ namespace ZombieGame
 
             foreach (Enemy e in enemyList)
             {
-                e.Update(new Rectangle((int)player._playerPos.X, (int)player._playerPos.Y, player._playerTexture.Width/2, player._playerTexture.Height/2));
+                e.Update(new Rectangle((int)player._playerPos.X, (int)player._playerPos.Y, player._playerTexture.Width/2, player._playerTexture.Height/2), gameTime);
                 if (e.returnIntersect(new Rectangle((int)player._playerPos.X, (int)player._playerPos.Y, player._playerTexture.Width/2, player._playerTexture.Height/2))){
-                    player._health -=1;
+                    if (e.canDamage) player._health -=5;
                 }
 
                 foreach (Bullet b in player.bulletList)
@@ -239,7 +256,7 @@ namespace ZombieGame
                 enemyList.Remove(e);
             }
 
-            player.Update();
+            player.Update(gameTime);
             base.Update(gameTime);
         }
 
