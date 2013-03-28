@@ -28,6 +28,7 @@ namespace ZombieGame
         List<Enemy> enemyList;
         List<Enemy> enemyDeleteList;
         List<Bullet> bulletDeleteList;
+        List<Rectangle> collisionList;
 
 
         //TILE STUFF
@@ -39,6 +40,8 @@ namespace ZombieGame
 
         List<Texture2D> tileList = new List<Texture2D>();
         List<Texture2D> tileList2 = new List<Texture2D>();
+
+        Vector2 previousPlayerPos = Vector2.Zero;
 
 
         int[,] tileMap = new int[,]
@@ -62,7 +65,7 @@ namespace ZombieGame
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
+                {-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
                 {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
@@ -78,7 +81,7 @@ namespace ZombieGame
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -108,6 +111,28 @@ namespace ZombieGame
         {
             // TODO: Add your initialization logic here
 
+            collisionList = new List<Rectangle>();
+
+            int tileMapWidth2 = tileMap2.GetLength(1);
+            int tileMapHeight2 = tileMap2.GetLength(0);
+
+            for (int x = 0; x < tileMapWidth2; x++)
+            {
+                for (int y = 0; y < tileMapHeight2; y++)
+                {
+                    int textIndex = tileMap2[y, x];
+
+                    if (textIndex == -1)
+                    {
+                        continue;
+                    }
+
+                    Rectangle r = new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+                    collisionList.Add(r);
+
+                }
+            }
+
             base.Initialize();
         }
 
@@ -123,7 +148,7 @@ namespace ZombieGame
 
             enemyDeleteList = new List<Enemy>();
             bulletDeleteList = new List<Bullet>();
-            playerTexture = Content.Load<Texture2D>("player");
+            playerTexture = Content.Load<Texture2D>("manwalk");
             mouseTexture = Content.Load<Texture2D>("cursor");
             bulletTexture = Content.Load<Texture2D>("bullet2");
             enemyTexture = Content.Load<Texture2D>("ZombieGreen");
@@ -160,8 +185,7 @@ namespace ZombieGame
             tileHand = Content.Load<Texture2D>("crate");
             tileList2.Add(tileHand);
 
-            Texture2D playerText = Content.Load<Texture2D>("manwalk");
-            player = new Player(playerTexture, mouseTexture, new Vector2(200, 200), bulletTexture, new AnimatedSprite(playerText, 1, 2, 0.5f));
+            player = new Player(playerTexture, mouseTexture, new Vector2(200, 200), bulletTexture, new AnimatedSprite(playerTexture, 1, 2, 0.5f));
 
         }
 
@@ -186,6 +210,9 @@ namespace ZombieGame
                 this.Exit();
 
             // TODO: Add your update logic here
+
+
+
 
             Vector2 motion = Vector2.Zero;
 
@@ -228,6 +255,27 @@ namespace ZombieGame
             if (cameraPosition.X > tilemapWidth - screenW) cameraPosition.X = tilemapWidth - screenW;
 
 
+            // COLLIDE WITH CRATES
+
+            previousPlayerPos = player._playerPos;
+            player.Update(gameTime);
+
+            foreach (Rectangle r in collisionList)
+            {
+
+                Rectangle r1 = new Rectangle(r.X - (int)cameraPosition.X, r.Y - (int)cameraPosition.Y, r.Width, r.Height);
+
+                if (r1.Intersects(player._playerRec))
+                {
+                    player._playerPos = previousPlayerPos;
+                    break;
+                }
+
+            }
+
+            // -------------------
+            
+
             foreach (Enemy e in enemyList)
             {
                 e.Update(new Rectangle((int)player._playerPos.X, (int)player._playerPos.Y, player._playerTexture.Width/2, player._playerTexture.Height/2), gameTime);
@@ -256,7 +304,7 @@ namespace ZombieGame
                 enemyList.Remove(e);
             }
 
-            player.Update(gameTime);
+            
             base.Update(gameTime);
         }
 
@@ -305,8 +353,8 @@ namespace ZombieGame
                 }
             }
 
-
             spriteBatch.DrawString(spriteFont, "Player Health : " + player._health.ToString(), new Vector2(10, 10), Color.White);
+            spriteBatch.DrawString(spriteFont, "X : " + player._playerPos.X.ToString() + " Y : " + player._playerPos.Y.ToString(), new Vector2(10, 50), Color.White);
 
             spriteBatch.End();
 

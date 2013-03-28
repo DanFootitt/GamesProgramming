@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crosshair.xnb</Output>
-      <Time>2013-02-05T18:01:26.9189622+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crosshair.xnb</Output>
+      <Time>2013-02-05T18:01:28+00:00</Time>
     </Item>
     <Item>
       <Source>player.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\player.xnb</Output>
-      <Time>2013-02-05T18:06:08.7674963+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\player.xnb</Output>
+      <Time>2013-02-05T18:06:10+00:00</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2013-02-05T19:14:40.9219442+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2013-02-05T19:14:42+00:00</Time>
     </Item>
     <Item>
       <Source>spider.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\spider.xnb</Output>
-      <Time>2013-02-06T00:44:38.9185729+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\spider.xnb</Output>
+      <Time>2013-02-06T00:44:40+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\se_free_dirt_texture.jpg</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_dirt_texture.xnb</Output>
-      <Time>2013-03-06T13:08:38.6745887+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_dirt_texture.xnb</Output>
+      <Time>2013-03-06T13:08:40+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\se_free_grass_texture.jpg</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_grass_texture.xnb</Output>
-      <Time>2013-03-06T13:08:38.6765883+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_grass_texture.xnb</Output>
+      <Time>2013-03-06T13:08:40+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\se_free_ground_texture.jpg</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_ground_texture.xnb</Output>
-      <Time>2013-03-06T13:08:38.6805898+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_ground_texture.xnb</Output>
+      <Time>2013-03-06T13:08:40+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\se_free_mud_texture.jpg</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_mud_texture.xnb</Output>
-      <Time>2013-03-06T13:08:38.6825869+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_mud_texture.xnb</Output>
+      <Time>2013-03-06T13:08:40+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\se_free_road_texture.jpg</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_road_texture.xnb</Output>
-      <Time>2013-03-06T13:08:38.6845894+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\se_free_road_texture.xnb</Output>
+      <Time>2013-03-06T13:08:40+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\blood.png</Source>
@@ -88,17 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\blood.xnb</Output>
-      <Time>2013-03-06T14:19:54.1035162+00:00</Time>
-    </Item>
-    <Item>
-      <Source>SpriteFont1.spritefont</Source>
-      <Name>SpriteFont1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2013-02-06T12:21:40.806709+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\blood.xnb</Output>
+      <Time>2013-03-06T14:19:56+00:00</Time>
     </Item>
     <Item>
       <Source>Tiles\rock.png</Source>
@@ -106,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\rock.xnb</Output>
-      <Time>2013-03-06T14:27:50.7107353+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Tiles\rock.xnb</Output>
+      <Time>2013-03-06T14:27:52+00:00</Time>
     </Item>
     <Item>
       <Source>ZombieGreen.png</Source>
@@ -115,17 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\ZombieGreen.xnb</Output>
-      <Time>2013-03-13T18:33:22.9968527+00:00</Time>
-    </Item>
-    <Item>
-      <Source>splashscreen2.png</Source>
-      <Name>splashscreen2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\splashscreen2.xnb</Output>
-      <Time>2013-03-13T17:53:58.9200934+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\ZombieGreen.xnb</Output>
+      <Time>2013-03-13T18:33:24+00:00</Time>
     </Item>
     <Item>
       <Source>manwalkcycle.png</Source>
@@ -133,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalkcycle.xnb</Output>
-      <Time>2013-03-13T20:57:17.0468548+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalkcycle.xnb</Output>
+      <Time>2013-03-13T20:57:18+00:00</Time>
     </Item>
     <Item>
       <Source>crate.png</Source>
@@ -142,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crate.xnb</Output>
-      <Time>2013-03-13T20:00:31.1156704+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\crate.xnb</Output>
+      <Time>2013-03-13T20:00:32+00:00</Time>
     </Item>
     <Item>
       <Source>cursor.png</Source>
@@ -151,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\cursor.xnb</Output>
-      <Time>2013-03-13T19:59:46.8946606+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\cursor.xnb</Output>
+      <Time>2013-03-13T19:59:48+00:00</Time>
     </Item>
     <Item>
       <Source>bullet2.png</Source>
@@ -160,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet2.xnb</Output>
-      <Time>2013-03-13T20:08:02.083636+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\bullet2.xnb</Output>
+      <Time>2013-03-13T20:08:04+00:00</Time>
     </Item>
     <Item>
       <Source>manwalk.png</Source>
@@ -169,8 +151,242 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalk.xnb</Output>
-      <Time>2013-03-13T20:59:15.6562765+00:00</Time>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\manwalk.xnb</Output>
+      <Time>2013-03-13T20:59:16+00:00</Time>
+    </Item>
+    <Item>
+      <Source>healthbarInside.png</Source>
+      <Name>healthbarInside</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\healthbarInside.xnb</Output>
+      <Time>2013-03-23T15:27:04+00:00</Time>
+    </Item>
+    <Item>
+      <Source>1up.png</Source>
+      <Name>1up</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\1up.xnb</Output>
+      <Time>2013-03-23T15:30:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>ZombieOrange.png</Source>
+      <Name>ZombieOrange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\ZombieOrange.xnb</Output>
+      <Time>2013-03-21T23:27:08+00:00</Time>
+    </Item>
+    <Item>
+      <Source>healthbarOutside.png</Source>
+      <Name>healthbarOutside</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\healthbarOutside.xnb</Output>
+      <Time>2013-03-23T15:26:46+00:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2013-02-06T12:21:42+00:00</Time>
+    </Item>
+    <Item>
+      <Source>classictree.png</Source>
+      <Name>classictree</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\classictree.xnb</Output>
+      <Time>2013-03-23T15:40:42+00:00</Time>
+    </Item>
+    <Item>
+      <Source>greentree.png</Source>
+      <Name>greentree</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\greentree.xnb</Output>
+      <Time>2013-03-23T15:39:46+00:00</Time>
+    </Item>
+    <Item>
+      <Source>pixeltreeone.png</Source>
+      <Name>pixeltreeone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\pixeltreeone.xnb</Output>
+      <Time>2013-03-23T15:50:14+00:00</Time>
+    </Item>
+    <Item>
+      <Source>poketree.png</Source>
+      <Name>poketree</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\poketree.xnb</Output>
+      <Time>2013-03-23T15:51:10+00:00</Time>
+    </Item>
+    <Item>
+      <Source>poketree2.png</Source>
+      <Name>poketree2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\poketree2.xnb</Output>
+      <Time>2013-03-23T16:19:22+00:00</Time>
+    </Item>
+    <Item>
+      <Source>car.png</Source>
+      <Name>car</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\car.xnb</Output>
+      <Time>2013-03-23T16:53:56+00:00</Time>
+    </Item>
+    <Item>
+      <Source>truck.png</Source>
+      <Name>truck</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\truck.xnb</Output>
+      <Time>2013-03-23T17:00:08+00:00</Time>
+    </Item>
+    <Item>
+      <Source>ZombieRed.png</Source>
+      <Name>ZombieRed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\ZombieRed.xnb</Output>
+      <Time>2013-03-24T12:04:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>enemyBullet.png</Source>
+      <Name>enemyBullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\enemyBullet.xnb</Output>
+      <Time>2013-03-24T12:49:56+00:00</Time>
+    </Item>
+    <Item>
+      <Source>blank.png</Source>
+      <Name>blank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2013-03-24T14:16:56+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\splashscreen2.png</Source>
+      <Name>Backgrounds\splashscreen2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Backgrounds\splashscreen2.xnb</Output>
+      <Time>2013-03-13T17:54:00+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\startscreen2Z.png</Source>
+      <Name>Backgrounds\startscreen2Z</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Backgrounds\startscreen2Z.xnb</Output>
+      <Time>2013-03-14T16:09:18+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\menubackground.png</Source>
+      <Name>Backgrounds\menubackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Backgrounds\menubackground.xnb</Output>
+      <Time>2013-03-24T15:01:48+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\HighscoresButton.png</Source>
+      <Name>Buttons\HighscoresButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\HighscoresButton.xnb</Output>
+      <Time>2013-03-24T14:52:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\highscoresGlow.png</Source>
+      <Name>Buttons\highscoresGlow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\highscoresGlow.xnb</Output>
+      <Time>2013-03-24T14:53:36+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\newGameButton.png</Source>
+      <Name>Buttons\newGameButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\newGameButton.xnb</Output>
+      <Time>2013-03-24T15:36:14+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\newGameGlow.png</Source>
+      <Name>Buttons\newGameGlow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\newGameGlow.xnb</Output>
+      <Time>2013-03-24T15:36:30+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\exitButton.png</Source>
+      <Name>Buttons\exitButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\exitButton.xnb</Output>
+      <Time>2013-03-24T15:47:54+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\exitButtonGlow.png</Source>
+      <Name>Buttons\exitButtonGlow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\exitButtonGlow.xnb</Output>
+      <Time>2013-03-24T15:54:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\helpButton.png</Source>
+      <Name>Buttons\helpButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\helpButton.xnb</Output>
+      <Time>2013-03-24T15:47:06+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Buttons\helpButtonGlow.png</Source>
+      <Name>Buttons\helpButtonGlow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\Buttons\helpButtonGlow.xnb</Output>
+      <Time>2013-03-24T15:51:20+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -178,10 +394,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGameContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Dan\Documents\GitHub\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGameContent\</RootDirectory>
+      <LoggerRootDirectory>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\</LoggerRootDirectory>
+      <IntermediateDirectory>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGameContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>F:\GamesProgramming\ZombieGame\ZombieGame\ZombieGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
