@@ -24,389 +24,417 @@ namespace ZombieGame
 
     public class GamePlayScreen : GameScreen
     {
-
-
-
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
         SpriteFont spriteFont;
         Texture2D playerTexture;
         Texture2D mouseTexture;
         Texture2D bulletTexture;
         Texture2D enemyTexture;
+        Texture2D explosionTexture;
         Player player;
-        Enemy test;
         List<Enemy> enemyList;
         List<Enemy> enemyDeleteList;
         List<Bullet> bulletDeleteList;
         List<Bullet> eBulletDeleteList;
-        List<Rectangle> collisionList;
-        List<Rectangle> healthList;
         List<TileObject> objList;
+        List<AnimatedSprite> animList;
+        SoundEffect sound;
+        float pauseAlpha;
+        Random rand = new Random();
 
-
-        //TILE STUFF
-        Texture2D tileDirt;
-        Texture2D tileGrass;
-        Texture2D tileMud;
-        Texture2D tileGround;
-        Texture2D tileHand;
+        ParticleComponent particleComponent;
         Texture2D heart;
 
         List<Texture2D> tileList = new List<Texture2D>();
         List<Texture2D> tileList2 = new List<Texture2D>();
 
+
         Vector2 previousPlayerPos = Vector2.Zero;
+        Vector2 playerPos = Vector2.Zero;
+        Vector2 playerSpawn;
 
-
-        int[,] tileMap = new int[,]
-            {
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-                {3,3,3,3,3,3,2,2,2,2,3,3,3,3,3,3,2,2,2,3,3,3,1,1,3,2},
-            };
-
-        int[,] objMap = new int[,]
-            {
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,2,2,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,2,2,2,-1,-1,-1,0,-1,-1,2,2,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,2,2,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,2,2,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,2,2,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,2,2,2,-1,4,-1,-1,-1,-1,2,2,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
-                {-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,2,2,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
-                {-1,-1,2,2,2,-1,-1,-1,-1,-1,-1,3,3,2,2,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,0},
-            };
-
-        int[,] spawnMap = new int[,]
-            {
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-                {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1},
-            };
-
-        int tileWidth = 64;
-        int tileHeight = 64;
-
-        Vector2 cameraPosition = Vector2.Zero;
-        float cameraSpeed = 5.0f;
+        TileLayer backgroundLayer;
+        Camera cam;
 
         ContentManager content;
+        bool isLevelComplete;
+        String name;
+
+        bool isFirstLevel;
+        int pLevel;
+        int pScore;
+        int pHealth;
+        int pLives;
+        GameDifficulty diff;
+        Random random;
+        bool levelstart;
 
         public GamePlayScreen(GameDifficulty diff)
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
-            
+
+            isFirstLevel = true;
+            this.diff = diff;
+
+            random = new Random();
+
         }
 
-        SoundEffect instruction_test;
+        public GamePlayScreen(GameDifficulty diff, String playerName)
+        {
+            TransitionOnTime = TimeSpan.FromSeconds(1.5);
+            TransitionOffTime = TimeSpan.FromSeconds(0.5);
 
+            name = playerName;
+            isFirstLevel = true;
+            this.diff = diff;
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
+            random = new Random();
+
+       }
+
+        public GamePlayScreen(GameDifficulty diff, string name, int score, int lives, int health, int level)
+        {
+            TransitionOnTime = TimeSpan.FromSeconds(1.5);
+            TransitionOffTime = TimeSpan.FromSeconds(0.5);
+
+            this.name = name;
+            pLevel = level;
+            pScore = score;
+            pHealth = health;
+            pLives = lives;
+
+            isFirstLevel = false;
+            this.diff = diff;
+
+            random = new Random();
+        }
+
+       
         public override void LoadContent()
         {
-            
+
+            System.Threading.Thread.Sleep(10);
+            levelstart = true;
+            animList = new List<AnimatedSprite>();
+
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
-            
-            objList = new List<TileObject>();
 
-            int tileMapWidth2 = objMap.GetLength(1);
-            int tileMapHeight2 = objMap.GetLength(0);
 
-            for (int x = 0; x < tileMapWidth2; x++)
+            sound = content.Load<SoundEffect>("Sounds\\explode");
+
+            explosionTexture = content.Load<Texture2D>("sprites/explosion2");
+            playerTexture = content.Load<Texture2D>("manwalk");
+            mouseTexture = content.Load<Texture2D>("cursor");
+            playerSpawn = new Vector2(150,150);
+
+           
+            player = new Player(playerTexture, mouseTexture, playerSpawn, content);
+            player.name = name;
+            if (!isFirstLevel)
             {
-                for (int y = 0; y < tileMapHeight2; y++)
-                {
-                    int textIndex = objMap[y, x];
-
-                    Texture2D objtext = null;
-                    ObjectType objtype = ObjectType.NORMAL;
-
-                    if (textIndex == -1)
-                    {
-                        continue;
-                    }
-
-                    if (textIndex == 0)
-                    {
-                        objtype = ObjectType.DESTRUCTIBLE;
-                        objtext = content.Load<Texture2D>("crate");
-                    }
-
-                    if (textIndex == 1)
-                    {
-                        objtype = ObjectType.PICKUP;
-                        objtext = content.Load<Texture2D>("1up");
-                    }
-
-                    if (textIndex == 2)
-                    {
-                        objtype = ObjectType.COLLISION;
-                        objtext = content.Load<Texture2D>("poketree");
-                    }
-
-                    if (textIndex == 3)
-                    {
-                        objtype = ObjectType.COLLISION;
-                        objtext = content.Load<Texture2D>("poketree2");
-                    }
-
-                    if (textIndex == 4)
-                    {
-                        objtype = ObjectType.COLLISION;
-                        objtext = content.Load<Texture2D>("truck");
-                    }
-
-                    TileObject tobj = new TileObject(objtext, objtype, new Vector2(x * tileWidth, y * tileHeight));
-                    objList.Add(tobj);
-
-                }
+                player.level = pLevel;
+                player.score = pScore;
+                player._health = pHealth;
+                player._lives = pLives;
             }
-
-
-            spriteFont = content.Load<SpriteFont>("SpriteFont1");
+            if (diff == GameDifficulty.HARD_MODE) player.MAX_SHOTS = 3;
+            heart = content.Load<Texture2D>("1up");
+            isLevelComplete = false;
 
             enemyDeleteList = new List<Enemy>();
             bulletDeleteList = new List<Bullet>();
             eBulletDeleteList = new List<Bullet>();
-            playerTexture = content.Load<Texture2D>("manwalk");
-            mouseTexture = content.Load<Texture2D>("cursor");
-            bulletTexture = content.Load<Texture2D>("bullet2");
 
-            enemyTexture = content.Load<Texture2D>("ZombieGreen");
-            //Texture2D enemyTexture2 = Content.Load<Texture2D>("ZombiePink");
-            Texture2D enemyTexture3 = content.Load<Texture2D>("ZombieRed");
-            Texture2D enemyTexture4 = content.Load<Texture2D>("ZombieOrange");
-            enemyList = new List<Enemy>();
+            cam = new Camera(new Vector2(0,0));
 
-            int spawnMapWidth = spawnMap.GetLength(1);
-            int spawnMapHeight = spawnMap.GetLength(0);
 
-            for (int x = 0; x < spawnMapWidth; x++)
+            particleComponent = new ParticleComponent(ScreenManager.Game);
+            ScreenManager.Game.Components.Add(particleComponent);
+
+            if (player.level == 1)
             {
-                for (int y = 0; y < spawnMapHeight; y++)
-                {
-                    int textIndex = spawnMap[y, x];
+                objList = new List<TileObject>();
+                objList = TileHandler.getTileObjectLayout(content, "Content/Layers/LevelOneObjects.txt");
 
-                    if (textIndex == -1)
-                    {
-                        continue;
-                    }
+                enemyList = new List<Enemy>();
+                if (diff == GameDifficulty.EASY_MODE ) enemyList = TileHandler.getEnemyLayout(content, "Content/Layers/LevelOneEnemyEasy.txt");
+                if (diff == GameDifficulty.HARD_MODE) enemyList = TileHandler.getEnemyLayout(content, "Content/Layers/LevelOneEnemyHard.txt");
 
-                    Enemy e = new Enemy(enemyTexture, new Vector2(x * tileWidth, y * tileHeight), EnemyType.normal);
-                    enemyList.Add(e);
+                spriteFont = content.Load<SpriteFont>("SpriteFont1");
 
-                }
+                backgroundLayer = TileLayer.FromFile(content, "Content/Layers/LevelOneBackgroundLayer.txt");
             }
 
-            //enemyList.Add(new Enemy(enemyTexture2, new Vector2(400, 400)));
-            //enemyList.Add(new Enemy(enemyTexture3, new Vector2(500, 400)));
-            enemyList.Add(new Enemy(enemyTexture4, new Vector2(600, 400), EnemyType.projectile, content));
-            enemyList.Add(new Enemy(enemyTexture3, new Vector2(500, 400), EnemyType.boss, content));
+            if (player.level == 2)
+            {
+                objList = new List<TileObject>();
+                objList = TileHandler.getTileObjectLayout(content, "Content/Layers/LevelTwoObjects.txt");
 
-            // TILE STUFF
+                enemyList = new List<Enemy>();
+                if (diff == GameDifficulty.EASY_MODE) enemyList = TileHandler.getEnemyLayout(content, "Content/Layers/LevelTwoEnemyEasy.txt");
+                if (diff == GameDifficulty.HARD_MODE) enemyList = TileHandler.getEnemyLayout(content, "Content/Layers/LevelTwoEnemyHard.txt");
 
-            tileDirt = content.Load<Texture2D>("Tiles/se_free_dirt_texture");
-            tileGrass = content.Load<Texture2D>("Tiles/se_free_grass_texture");
-            tileGround = content.Load<Texture2D>("Tiles/se_free_ground_texture");
-            tileMud = content.Load<Texture2D>("Tiles/se_free_mud_texture");
+                spriteFont = content.Load<SpriteFont>("SpriteFont1");
+
+                backgroundLayer = TileLayer.FromFile(content, "Content/Layers/LevelOneBackgroundLayer.txt");
+            }
 
 
-            tileList.Add(tileDirt);
-            tileList.Add(tileMud);
-            tileList.Add(tileGround);
-            tileList.Add(tileGrass);
 
-            Texture2D tileHeart = content.Load<Texture2D>("1up");
-            tileHand = content.Load<Texture2D>("crate");
-            tileList2.Add(tileHand);
-            tileList2.Add(tileHeart);
+            if (player.level == 3)
+            {
+                objList = new List<TileObject>();
+                objList = TileHandler.getTileObjectLayout(content, "Content/Layers/LevelThreeObjects.txt");
 
-            player = new Player(playerTexture, mouseTexture, new Vector2(200, 200), new AnimatedSprite(playerTexture, 1, 2, 0.5f), content);
-            heart = content.Load<Texture2D>("1up");
+                enemyList = new List<Enemy>();
+                if (diff == GameDifficulty.EASY_MODE) enemyList = TileHandler.getEnemyLayout(content, "Content/Layers/LevelThreeEnemyEasy.txt");
+                if (diff == GameDifficulty.HARD_MODE) enemyList = TileHandler.getEnemyLayout(content, "Content/Layers/LevelThreeEnemyHard.txt");
+
+                spriteFont = content.Load<SpriteFont>("SpriteFont1");
+
+                backgroundLayer = TileLayer.FromFile(content, "Content/Layers/LevelTwoBackgroundLayer.txt");
+
+                Emitter testEmitter2 = new Emitter();
+                testEmitter2.Active = true;
+                testEmitter2.TextureList.Add(content.Load<Texture2D>("raindrop"));
+                testEmitter2.RandomEmissionInterval = new RandomMinMax(16.0d);
+                testEmitter2.ParticleLifeTime = 1000;
+                testEmitter2.ParticleDirection = new RandomMinMax(170);
+                testEmitter2.ParticleSpeed = new RandomMinMax(10.0f);
+                testEmitter2.ParticleRotation = new RandomMinMax(0);
+                testEmitter2.RotationSpeed = new RandomMinMax(0f);
+                testEmitter2.ParticleFader = new ParticleFader(false, true, 800);
+                testEmitter2.ParticleScaler = new ParticleScaler(false, 1.0f);
+                testEmitter2.Opacity = 255;
+
+                particleComponent.particleEmitterList.Add(testEmitter2);
+            }
+
+            ScreenManager.AddScreen(new MessageBoxScreen("", mouseTexture), null);
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
+
         public override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
             content.Unload();
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
-
-            Vector2 motion = Vector2.Zero;
-
-            KeyboardState kbs = Keyboard.GetState();
-
-            if (kbs.IsKeyDown(Keys.W))
+            if (levelstart && !otherScreenHasFocus)
             {
-                motion.Y--;
+                ScreenManager.AddScreen(new MessageBoxScreen("", mouseTexture), null);
+                levelstart = false;
             }
 
-            if (kbs.IsKeyDown(Keys.S))
+            base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+
+            if (coveredByOtherScreen)
+                pauseAlpha = Math.Min(pauseAlpha + 1f / 32, 1);
+            else
+                pauseAlpha = Math.Max(pauseAlpha - 1f / 32, 0);
+
+            if (!otherScreenHasFocus)
             {
-                motion.Y++;
-            }
 
-            if (kbs.IsKeyDown(Keys.D))
-            {
-                motion.X++;
-            }
+                Vector2 prevCamPos = cam.position;
+                cam.Update(player, objList, backgroundLayer);
 
-            if (kbs.IsKeyDown(Keys.A))
-            {
-                motion.X--;
-            }
-
-
-            Vector2 prevCamPos = cameraPosition;
-
-            if (motion != Vector2.Zero) motion.Normalize();
-            cameraPosition += motion * cameraSpeed;
-
-
-            if (cameraPosition.Y < 0) cameraPosition.Y = 0;
-            if (cameraPosition.X < 0) cameraPosition.X = 0;
-
-            int screenW = 800;// GraphicsDevice.Viewport.Width;
-            int screenH = 600;// GraphicsDevice.Viewport.Height;
-
-            int tilemapWidth = tileMap.GetLength(1) * tileWidth;
-            int tilemapHeight = tileMap.GetLength(0) * tileHeight;
-
-            if (cameraPosition.Y > tilemapHeight - screenH) cameraPosition.Y = tilemapHeight - screenH;
-            if (cameraPosition.X > tilemapWidth - screenW) cameraPosition.X = tilemapWidth - screenW;
-
-
-            // COLLISION
-            previousPlayerPos = player._playerPos;
-            player.Update(gameTime);
-
-            List<TileObject> objRemoveList = new List<TileObject>();
-
-            foreach (TileObject c in objList)
-            {
-                if (prevCamPos != cameraPosition) c.objPos = c.objPos - (cameraPosition - prevCamPos);
-                c.Update();
-
-                if (player._playerRec.Intersects(c.objRec))
+                if (!player.isAlive && player.pSprite.isFinished)
                 {
-                    if (c.objType == ObjectType.PICKUP)
-                    {
-                        if (player._health >= 50) player._health = 100;
-                        else player._health += 50;
-                        objRemoveList.Add(c);
-                    }
-
-                    /*if (c.objType == (int)objectType.collision)
-                    {
-                        player._playerPos = previousPlayerPos;
-                    }*/
-                }
-            }
-
-
-
-            foreach (TileObject c in objRemoveList)
-            {
-                objList.Remove(c);
-            }
-
-
-            // COLLISION
-
-
-            foreach (Enemy e in enemyList)
-            {
-                if (prevCamPos != cameraPosition) e._enemyPos = e._enemyPos - (cameraPosition - prevCamPos);
-                e.Update(player._playerRec, gameTime);
-
-                if (e.returnIntersect(new Rectangle((int)player._playerPos.X, (int)player._playerPos.Y, player._playerTexture.Width / 2, player._playerTexture.Height / 2)))
-                {
-                    if (e.canDamage) player._health -= 5;
+                    cam.position = new Vector2(0, 0);
+                    backgroundLayer = TileLayer.FromFile(content, "Content/Layers/LevelOneBackgroundLayer.txt");
+                    player._playerPos = new Vector2(150, 150);
                 }
 
-                foreach (Bullet b in e.bulletList)
+                previousPlayerPos = player._playerPos;
+                player.Update(gameTime, objList, cam);
+
+                if (player._lives == 0)
                 {
-                    if (b.intersectsTarget(player._playerRec))
-                    {
-                        player._health -= 10;
-                        eBulletDeleteList.Add(b);
-                    }
+                    ScreenManager.RemoveScreen(this);
+                    ScreenManager.AddScreen(new GameOverScreen(player, GameOverScreen.gameOverType.GAMEOVER), null);
                 }
 
-                foreach (Bullet b in eBulletDeleteList)
-                {
-                    e.bulletList.Remove(b);
-                }
+                // COLLISION
+                List<TileObject> objRemoveList = new List<TileObject>();
+                List<TileObject> objCreateList = new List<TileObject>();
+                List<AnimatedSprite> animRemoveList = new List<AnimatedSprite>();
 
-                foreach (Bullet b in player.bulletList)
+                foreach (TileObject c in objList)
                 {
- 
-                    if (b.intersectsTarget(e.enemyRec))
+                    if (cam.position != prevCamPos) c.objPos = c.objPos - (cam.position - prevCamPos);
+                    c.Update();
+
+                    if (player._playerRec.Intersects(c.objRec))
                     {
-                        e.health -= 10;
-                        bulletDeleteList.Add(b);
-
-                        if (e.health <= 0)
+                        if (c.objType == ObjectType.PICKUP)
                         {
-                            enemyDeleteList.Add(e);
-                            if (e._type == EnemyType.normal) player.score += 10;
-                            if (e._type == EnemyType.fast) player.score += 20;
-                            if (e._type == EnemyType.hard) player.score += 50;
-                            if (e._type == EnemyType.projectile) player.score += 70;
-                            if (e._type == EnemyType.boss) player.score += 100;
+                            if (player._health >= 50) player._health = 100;
+                            else player._health += 50;
+                            objRemoveList.Add(c);
+                        }
+
+
+                    }
+
+                    foreach (Bullet b in player.bulletList)
+                    {
+                        if (b.intersectsTarget(c.objRec))
+                        {
+                            if (c.objType == ObjectType.DESTRUCTIBLE)
+                            {
+                                bulletDeleteList.Add(b);
+                                objRemoveList.Add(c);
+                                animList.Add(new AnimatedSprite(explosionTexture, AnimatedSprite.AnimType.PLAY_ONCE, 6, 6, 0.02f, new Vector2(c.objPos.X + c.objRec.Width / 2, c.objPos.Y + c.objRec.Width / 2), 1.5f));
+                                sound.Play();
+                            }
+                            if (c.objType == ObjectType.CRATE)
+                            {
+                                bulletDeleteList.Add(b);
+                                objRemoveList.Add(c);
+                                int test = 1;
+                                if (this.diff == GameDifficulty.HARD_MODE) test = rand.Next(0, 7);
+                                else test = rand.Next(0, 5);
+                                if (test == 0)objCreateList.Add(new TileObject(heart, ObjectType.PICKUP, new Vector2(c.objRec.X, c.objRec.Y)));
+                            }
                         }
                     }
                 }
+
+
+
+                foreach (AnimatedSprite a in animList)
+                {
+                    if (cam.position != prevCamPos) a.pos = a.pos - (cam.position - prevCamPos);
+                    a.Update(gameTime);
+
+
+                    if (a.spriteRec.Intersects(player._playerRec) && !a.playerDamaged)
+                    {
+                        player._health -= 30;
+                        a.playerDamaged = true;
+                    }
+                    if (a.isFinished) animRemoveList.Add(a);
+                }
+
+                foreach (AnimatedSprite a in animRemoveList)
+                {
+                    animList.Remove(a);
+                }
+
+                foreach (TileObject c in objCreateList)
+                {
+                    objList.Add(c);
+                }
+
+                foreach (TileObject c in objRemoveList)
+                {
+                    objList.Remove(c);
+                }
+
+
+
+                foreach (Enemy e in enemyList)
+                {
+                    if (cam.position != prevCamPos) e._enemyPos = e._enemyPos - (cam.position - prevCamPos);
+                    e.Update(player._playerRec, gameTime);
+
+                    if (e.returnIntersect(player._playerRec))
+                    {
+                        if (e.canDamage) player._health -= 5;
+                    }
+
+                    foreach (Bullet b in e.bulletList)
+                    {
+                        if (cam.position != prevCamPos) b._bulletPos = b._bulletPos - (cam.position - prevCamPos);
+                        if (b.intersectsTarget(player._playerRec))
+                        {
+                            player._health -= 10;
+                            eBulletDeleteList.Add(b);
+                        }
+                    }
+
+                    foreach (Bullet b in eBulletDeleteList)
+                    {
+                        e.bulletList.Remove(b);
+                    }
+
+                    foreach (Bullet b in player.bulletList)
+                    {
+                        if (b.intersectsTarget(e.enemyRec))
+                        {
+                            e.health -= 10;
+                            bulletDeleteList.Add(b);
+
+
+                        }
+                    }
+
+                    foreach (AnimatedSprite a in animList)
+                    {
+                        if (a.spriteRec.Intersects(e.enemyRec) && !a.damagedEnemies.Contains(e))
+                        {
+                            e.health -= 100;
+                            a.damagedEnemies.Add(e);
+                        }
+                    }
+
+
+                    if (e.health <= 0)
+                    {
+                        enemyDeleteList.Add(e);
+                        if (e._type == EnemyType.normal) player.score += 10;
+                        if (e._type == EnemyType.fast) player.score += 20;
+                        if (e._type == EnemyType.hard) player.score += 50;
+                        if (e._type == EnemyType.projectile) player.score += 70;
+                        if (e._type == EnemyType.boss) player.score += 100;
+                    }
+                }
+
+
+                foreach (Bullet b in bulletDeleteList)
+                {
+                    player.bulletList.Remove(b);
+                }
+
+                foreach (Enemy e in enemyDeleteList)
+                {
+                    enemyList.Remove(e);
+                }
+
+
+                //LEVEL COMPLETE
+
+                if (enemyList.Count == 0)
+                {
+                    ScreenManager.Game.Components.Remove(particleComponent);
+                    isLevelComplete = true;
+
+                }
+
+
+                if (isLevelComplete)
+                {
+                    ScreenManager.RemoveScreen(this);
+                    ScreenManager.AddScreen(new LevelCompleteScreen(player, this.diff, 50.0f), null);
+                }
+
             }
 
-
-
-
-            foreach (Bullet b in bulletDeleteList)
+            if (player.level == 3)
             {
-                player.bulletList.Remove(b);
+                Emitter t2 = particleComponent.particleEmitterList[0];
+                t2.Position = new Vector2((float)random.NextDouble() * (ScreenManager.Game.GraphicsDevice.Viewport.Width), 0);
+                if (t2.EmittedNewParticle)
+                {
+                    float f = MathHelper.ToRadians(t2.LastEmittedParticle.Direction + 180);
+                    t2.LastEmittedParticle.Rotation = f;
+                }
             }
 
-            foreach (Enemy e in enemyDeleteList)
-            {
-                enemyList.Remove(e);
-            }
 
 
         }
@@ -415,26 +443,15 @@ namespace ZombieGame
 
         public override void HandleInput(InputState input)
         {
-            if (input == null)
-                throw new ArgumentNullException("input");
 
-            // Look up inputs for the active player profile.
             int playerIndex = 1;
 
             KeyboardState keyboardState = input.CurrentKeyboardStates[playerIndex];
-            GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
 
-            // The game pauses either if the user presses the pause button, or if
-            // they unplug the active gamepad. This requires us to keep track of
-            // whether a gamepad was ever plugged in, because we don't want to pause
-            // on PC if they are playing with a keyboard and have no gamepad at all!
-            bool gamePadDisconnected = !gamePadState.IsConnected &&
-                                       input.GamePadWasConnected[playerIndex];
 
-            if (input.IsPauseGame(ControllingPlayer) || gamePadDisconnected)
+            if (input.IsPauseGame(ControllingPlayer))
             {
                 ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
-
 
             }
 
@@ -448,46 +465,10 @@ namespace ZombieGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime)
         {
-
             SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            spriteBatch.Begin();
 
+            backgroundLayer.Draw(spriteBatch, cam.position);
 
-            int tileMapWidth = tileMap.GetLength(1);
-            int tileMapHeight = tileMap.GetLength(0);
-
-            for (int x = 0; x < tileMapWidth; x++)
-            {
-                for (int y = 0; y < tileMapHeight; y++)
-                {
-                    int textIndex = tileMap[y, x];
-                    Texture2D text = tileList[textIndex];
-
-                    spriteBatch.Draw(text, new Rectangle(x * tileWidth - (int)cameraPosition.X, y * tileHeight - (int)cameraPosition.Y, tileWidth, tileHeight), Color.White);
-                }
-            }
-
-            spriteBatch.End();
-
-            /*int tileMapWidth2 = objMap.GetLength(1);
-            int tileMapHeight2 = objMap.GetLength(0);
-
-            for (int x = 0; x < tileMapWidth2; x++)
-            {
-                for (int y = 0; y < tileMapHeight2; y++)
-                {
-                    int textIndex = objMap[y, x];
-
-                    if (textIndex == -1)
-                    {
-                        continue;
-                    }
-
-                    Texture2D text = tileList2[textIndex];
-
-                    spriteBatch.Draw(text, new Rectangle(x * tileWidth - (int)cameraPosition.X, y * tileHeight - (int)cameraPosition.Y, tileWidth, tileHeight), Color.White);
-                }
-            } */
 
             foreach (TileObject c in objList)
             {
@@ -497,6 +478,11 @@ namespace ZombieGame
             foreach (Enemy e in enemyList)
             {
                 e.Draw(spriteBatch);
+            }
+
+            foreach (AnimatedSprite a in animList)
+            {
+                a.Draw(spriteBatch, a.pos, 0.0f);
             }
 
             player.Draw(spriteBatch);
@@ -514,8 +500,15 @@ namespace ZombieGame
 
             }
 
-            spriteBatch.DrawString(spriteFont, "Score : " + player.score.ToString(), new Vector2(10, 90), Color.White);
+            spriteBatch.DrawString(spriteFont, "Score : " + player.score, new Vector2(10, 90), Color.White);
             spriteBatch.End();
+
+            if (TransitionPosition > 0 || pauseAlpha > 0)
+            {
+                float alpha = MathHelper.Lerp(1f - TransitionAlpha, 1f, pauseAlpha / 2);
+
+                ScreenManager.FadeBackBufferToBlack(alpha);
+            }
 
         }
     }

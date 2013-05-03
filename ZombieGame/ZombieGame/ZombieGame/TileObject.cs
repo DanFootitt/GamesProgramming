@@ -19,10 +19,11 @@ namespace ZombieGame
         NORMAL,
         COLLISION,
         PICKUP,
-        DESTRUCTIBLE
+        DESTRUCTIBLE,
+        CRATE
     }
 
-    class TileObject
+    public class TileObject
     {
         Texture2D objTexture;
         public Vector2 objPos;
@@ -42,9 +43,17 @@ namespace ZombieGame
             this.objRec = new Rectangle((int)objPos.X, (int)objPos.Y, objTexture.Width, objTexture.Height);
         }
 
+        public bool collison(Vector2 pos, Player player)
+        {
+            if (player._playerRec.Intersects(this.objRec))
+                return true;
+
+            else return false;
+        }
+
         public void Update()
         {
-            this.objRec = new Rectangle((int)objPos.X, (int)objPos.Y, objTexture.Width, objTexture.Height); 
+            this.objRec = new Rectangle((int)objPos.X, (int)objPos.Y, objTexture.Width, objTexture.Height);
         }
 
         public void Draw(SpriteBatch sb)

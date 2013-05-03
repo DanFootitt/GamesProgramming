@@ -109,10 +109,28 @@
   <ItemGroup>
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameHandler.cs" />
+    <Compile Include="HighScores.cs" />
+    <Compile Include="HighScoreTable.cs" />
     <Compile Include="MenuButton.cs" />
+    <Compile Include="ParticleComponents\Emitter.cs" />
+    <Compile Include="ParticleComponents\EmitterHelper.cs" />
+    <Compile Include="ParticleComponents\ParticleFader.cs" />
+    <Compile Include="ParticleComponents\ParticleScaler.cs" />
+    <Compile Include="ParticleComponents\RandomMinMax.cs" />
+    <Compile Include="ParticleComponents\Particle.cs" />
+    <Compile Include="ParticleComponents\ParticleGameComponent.cs" />
+    <Compile Include="RotatedRectangle.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Bullet.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Screens\HighScoreScreen.cs" />
+    <Compile Include="Screens\InstructionsScreen.cs" />
+    <Compile Include="Screens\LevelCompleteScreen.cs" />
+    <Compile Include="Screens\ModeSelectScreen.cs" />
+    <Compile Include="Screens\NameEntryScreen.cs" />
+    <Compile Include="TileEngine\TileHandler.cs" />
+    <Compile Include="TileEngine\TileLayer.cs" />
     <Compile Include="TileObject.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Screens\GameOverScreen.cs" />
@@ -171,9 +189,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TileEngine\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

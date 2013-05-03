@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ZombieGame
 {
@@ -13,6 +14,7 @@ namespace ZombieGame
     {
         ContentManager content;
         Texture2D splashTexture;
+        SoundEffect scream;
 
 
         public enum splashScreenType { 
@@ -20,10 +22,7 @@ namespace ZombieGame
                 Game
         }
 
-        //How long should the screen stay fully visible
         const float timeToStayOnScreen = 1.5f;
-
-        //Keep track of how much time has passed
         float timer = 0f;
 
         splashScreenType screenType;
@@ -33,21 +32,16 @@ namespace ZombieGame
 
             screenType = s;
 
-            //How long to fade in
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
-
-            //How long to fade out
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
         }
 
         public override void LoadContent()
         {
-            //Load a new ContentManager so when we're done
-            //showing this screen we can unload the content
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-            //Splash screen texture
+            scream = content.Load<SoundEffect>("Sounds\\menuscream");
             if (screenType == splashScreenType.studio) splashTexture = content.Load<Texture2D>("backgrounds\\Splashscreen2");
             if (screenType == splashScreenType.Game) splashTexture = content.Load<Texture2D>("backgrounds\\StartScreen2Z");
         }
@@ -64,16 +58,11 @@ namespace ZombieGame
 
             if (ScreenState == ScreenState.Active)
             {
-                //When this screen is fully active, we want to
-                //begin our timer so we know when to fade out
                 float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 timer += elapsed;
                 if (timer >= timeToStayOnScreen)
                 {
-                    //When we've passed the 'timeToStayOnScreen' time,
-                    //we call ExitScreen() which will fade out then
-                    //kill the screen afterwards
                     ExitScreen();
                 }
             }
@@ -81,18 +70,17 @@ namespace ZombieGame
             {
                 if (TransitionPosition == 1)
                 {
-                    //When 'TransistionPosition' hits 1 then our screen
-                    //is fully faded out. Anything in this block of
-                    //code is the last thing to be called before this
-                    //screen is killed forever so we add the next screen(s)
-                    //ScreenManager.AddScreen(new BackgroundScreen(), null);
-                    if (screenType == splashScreenType.studio) ScreenManager.AddScreen(new SplashScreen(splashScreenType.Game), null); 
-                    // add menu after second splash screen
+
+                    if (screenType == splashScreenType.studio)
+                    {
+                        ExitScreen();
+                        ScreenManager.AddScreen(new SplashScreen(splashScreenType.Game), null);
+                    }
+
                     if (screenType == splashScreenType.Game)
                     {
-                        //ScreenManager.AddScreen(new GamePlayScreen(), null);
-                        ScreenManager.AddScreen(new BackgroundScreen(), null);
-                        ScreenManager.AddScreen(new MainMenuScreen(), null);
+                        ExitScreen();
+                        ScreenManager.AddScreen(new MainMenuScreen(true), null);
                     }
                 }
             }
@@ -107,7 +95,7 @@ namespace ZombieGame
 
             spriteBatch.Begin();
 
-            //Draw our logo centered to the screen
+
             spriteBatch.Draw(splashTexture,
                 center,
                 null,

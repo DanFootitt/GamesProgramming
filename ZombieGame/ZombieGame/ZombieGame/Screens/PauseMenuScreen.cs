@@ -1,79 +1,96 @@
-#region File Description
-//-----------------------------------------------------------------------------
-// PauseMenuScreen.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
-
-#region Using Statements
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Microsoft.Xna.Framework;
-#endregion
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace ZombieGame
 {
-    /// <summary>
-    /// The pause menu comes up over the top of the game,
-    /// giving the player options to resume or quit.
-    /// </summary>
-    class PauseMenuScreen : MenuScreen
+
+    class PauseMenuScreen : GameScreen
     {
-        #region Initialization
 
+        Mouse mouse;
+        MenuButton easyButton;
+        MenuButton hardButton;
+        Texture2D zombie;
+        Texture2D title;
+        
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
         public PauseMenuScreen()
-            : base("Paused")
         {
-            // Create our menu entries.
-            MenuEntry resumeGameMenuEntry = new MenuEntry("Resume Game");
-            MenuEntry quitGameMenuEntry = new MenuEntry("Quit Game");
-            
-            // Hook up menu event handlers.
-            resumeGameMenuEntry.Selected += OnCancel;
-            quitGameMenuEntry.Selected += QuitGameMenuEntrySelected;
+            IsPopup = false;
 
-            // Add entries to the menu.
-            MenuEntries.Add(resumeGameMenuEntry);
-            MenuEntries.Add(quitGameMenuEntry);
+            TransitionOnTime = TimeSpan.FromSeconds(0.2);
+            TransitionOffTime = TimeSpan.FromSeconds(0.2);
         }
 
 
-        #endregion
-
-        #region Handle Input
-
-
-        /// <summary>
-        /// Event handler for when the Quit Game menu entry is selected.
-        /// </summary>
-        void QuitGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        public override void LoadContent()
         {
-            const string message = "Are you sure you want to quit this game?";
 
-            MessageBoxScreen confirmQuitMessageBox = new MessageBoxScreen(message);
+            ContentManager content = ScreenManager.Game.Content;
 
-            confirmQuitMessageBox.Accepted += ConfirmQuitMessageBoxAccepted;
+            zombie = content.Load<Texture2D>("backgrounds\\title");
+            title = content.Load<Texture2D>("backgrounds\\pause");
+            Texture2D norm = content.Load<Texture2D>("Buttons\\continueGlow");
+            Texture2D glow = content.Load<Texture2D>("Buttons\\continue");
+            easyButton = new MenuButton(glow, norm, new Vector2(800 / 2 - (norm.Width / 2), 300));
 
-            ScreenManager.AddScreen(confirmQuitMessageBox, ControllingPlayer);
+            norm = content.Load<Texture2D>("Buttons\\exitbuttonGlow");
+            glow = content.Load<Texture2D>("Buttons\\exitbutton");
+            hardButton = new MenuButton(glow, norm, new Vector2(800 / 2 - (norm.Width / 2), 380));
+
+
+            mouse = new Mouse(content, "cursor");
+        }
+
+        public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
+        {
+
+            base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+            mouse.Update();
+
+            easyButton.Update(mouse.rectangle);
+            if (easyButton.Intersects(mouse.rectangle) && mouse.newLeftClick)
+            {
+                ExitScreen();
+            }
+
+            hardButton.Update(mouse.rectangle);
+            if (hardButton.Intersects(mouse.rectangle) && mouse.newLeftClick)
+            {
+                ExitScreen();
+                System.Threading.Thread.Sleep(100);
+                ScreenManager.AddScreen(new MainMenuScreen(), null);
+            }
+
+
         }
 
 
-        /// <summary>
-        /// Event handler for when the user selects ok on the "are you sure
-        /// you want to quit" message box. This uses the loading screen to
-        /// transition from the game back to the main menu screen.
-        /// </summary>
-        void ConfirmQuitMessageBoxAccepted(object sender, PlayerIndexEventArgs e)
+        public override void Draw(GameTime gameTime)
         {
-            LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(),
-                                                           new MainMenuScreen());
+            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            SpriteFont font = ScreenManager.Font;
+
+            // Fade the popup alpha during transitions.
+            Color color = Color.White * TransitionAlpha;
+
+            spriteBatch.Begin();
+            spriteBatch.Draw(zombie, new Rectangle(0, 10, zombie.Width, zombie.Height), Color.White);
+            spriteBatch.Draw(title, new Rectangle((800 / 2) - (title.Width / 2), 120, title.Width, title.Height), Color.White);
+            spriteBatch.End();
+
+            easyButton.Draw(spriteBatch);
+            hardButton.Draw(spriteBatch);
+            mouse.Draw(spriteBatch);
+
+
         }
 
 
-        #endregion
     }
 }

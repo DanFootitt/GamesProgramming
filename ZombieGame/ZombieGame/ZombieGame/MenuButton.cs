@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ZombieGame
 {
@@ -14,6 +15,7 @@ namespace ZombieGame
         Texture2D normText;
         Texture2D glowText;
         Rectangle rec;
+        public SoundEffect sound;
 
 
         public MenuButton(Texture2D glowTexture, Texture2D normTexture, Vector2 position)
@@ -24,6 +26,17 @@ namespace ZombieGame
             this.rec = new Rectangle((int)position.X, (int)position.Y, normTexture.Width, normTexture.Height);
             this.activeText = normText;
         }
+
+        public MenuButton(Texture2D glowTexture, Texture2D normTexture, Vector2 position, SoundEffect sound)
+        {
+            this.glowText = glowTexture;
+            this.normText = normTexture;
+
+            this.rec = new Rectangle((int)position.X, (int)position.Y, normTexture.Width, normTexture.Height);
+            this.activeText = normText;
+            this.sound = sound;
+        }
+
 
         public void Update(Rectangle target)
         {

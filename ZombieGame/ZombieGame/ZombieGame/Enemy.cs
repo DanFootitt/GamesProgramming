@@ -24,8 +24,9 @@ namespace ZombieGame
         boss
     }
 
-    class Enemy
+    public class Enemy
     {
+        SoundEffect growl;
         public EnemyType _type;
         public Texture2D enemyTexture;
         public Texture2D bulletTexture;
@@ -33,10 +34,12 @@ namespace ZombieGame
         float _enemyRot;
         bool intersectsTarget;
         public Rectangle enemyRec;
+        SoundEffect spit;
 
         public int health;
         int speed;
         int attackRadius;
+        float scale;
 
         //damage control
         float damageTime;
@@ -48,25 +51,6 @@ namespace ZombieGame
         Texture2D healthbarIn;
 
         public List<Bullet> bulletList;
-
-        public Enemy(Texture2D enemyTexture, Vector2 enemyPos, EnemyType e)
-        {
-            
-            this.enemyTexture = enemyTexture;
-            this._enemyPos = enemyPos;
-
-            this._type = e;
-            initializeEnemy(e);
-
-
-            bulletList = new List<Bullet>();
-
-            _enemyRot = 180.0f;
-            enemyRec = new Rectangle((int)_enemyPos.X, (int)_enemyPos.Y, enemyTexture.Width * 3, enemyTexture.Height * 3);
-            elapsedFrameTime = 0;
-            canDamage = true;
-            canAttack = false;
-        }
 
         public Enemy(Texture2D enemyTexture, Vector2 enemyPos, EnemyType e, ContentManager content)
         {
@@ -81,14 +65,16 @@ namespace ZombieGame
             bulletList = new List<Bullet>();
 
             _enemyRot = 180.0f;
-            enemyRec = new Rectangle((int)_enemyPos.X, (int)_enemyPos.Y, enemyTexture.Width * 3, enemyTexture.Height * 3);
+            enemyRec = new Rectangle((int)_enemyPos.X, (int)_enemyPos.Y, (int)(enemyTexture.Width * scale), (int)(enemyTexture.Height * scale));
             elapsedFrameTime = 0;
             canDamage = true;
             canAttack = false;
 
+            spit = content.Load<SoundEffect>("Sounds\\zombiespit");
             this.healthbarIn = content.Load<Texture2D>("healthbarinside");
             this.healthbarOut = content.Load<Texture2D>("healthbaroutside");
             this.bulletTexture = content.Load<Texture2D>("enemyBullet");
+            this.growl = content.Load<SoundEffect>("Sounds\\growl");
         }
 
 
@@ -98,9 +84,11 @@ namespace ZombieGame
             enemyRec = new Rectangle((int)_enemyPos.X, (int)_enemyPos.Y, enemyTexture.Width * 3, enemyTexture.Height * 3);
 
             Vector2 diff = _enemyPos - targetPos;
+            bool prevAttack = canAttack;
 
             if (diff.X < attackRadius && diff.Y < attackRadius)
             {
+                if (!canAttack) growl.Play();
                 canAttack = true;
             }
             else canAttack = false;
@@ -125,6 +113,7 @@ namespace ZombieGame
                         b._bulletRot = (float)Math.Atan2(direction.Y, direction.X) - (float)(Math.PI * 1.0f);
                         b.scale = 0.8f;
                         bulletList.Add(b);
+                        spit.Play();
                     }
                     canDamage = false;
                 }
@@ -159,6 +148,7 @@ namespace ZombieGame
                 this.speed = 1;
                 this.attackRadius = 300;
                 this.damageTime = 1.0f;
+                this.scale = 3.0f;
             }
 
             if (e == EnemyType.fast)
@@ -167,6 +157,7 @@ namespace ZombieGame
                 this.speed = 3;
                 this.attackRadius = 300;
                 this.damageTime = 1.0f;
+                this.scale = 3.0f;
             }
 
             if (e == EnemyType.hard)
@@ -175,14 +166,16 @@ namespace ZombieGame
                 this.speed = 3;
                 this.attackRadius = 300;
                 this.damageTime = 0.5f;
+                this.scale = 3.0f;
             }
 
             if (e == EnemyType.boss)
             {
-                this.health = 100;
+                this.health = 500;
                 this.speed = 3;
                 this.attackRadius = 300;
                 this.damageTime = 0.5f;
+                this.scale = 4.0f;
             }
 
             if (e == EnemyType.projectile)
@@ -191,6 +184,7 @@ namespace ZombieGame
                 this.speed = 5;
                 this.attackRadius = 400;
                 this.damageTime = 2.0f;
+                this.scale = 3.0f;
             }
         }
 
@@ -200,10 +194,10 @@ namespace ZombieGame
             if (this._type == EnemyType.boss)
             {
                 spriteBatch.Draw(healthbarIn, new Rectangle((int)_enemyPos.X - 30, (int)_enemyPos.Y - enemyTexture.Height - 40, healthbarIn.Width / 4, healthbarIn.Height / 4), Color.Gray);
-                spriteBatch.Draw(healthbarIn, new Rectangle((int)_enemyPos.X - 30, (int)_enemyPos.Y - enemyTexture.Height - 40, (int)(healthbarIn.Width / 4 * ((double)this.health / 100)), healthbarIn.Height / 4), Color.Red);
+                spriteBatch.Draw(healthbarIn, new Rectangle((int)_enemyPos.X - 30, (int)_enemyPos.Y - enemyTexture.Height - 40, (int)(healthbarIn.Width / 4 * ((double)this.health / 500)), healthbarIn.Height / 4), Color.Red);
                 spriteBatch.Draw(healthbarOut, new Rectangle((int)_enemyPos.X - 30, (int)_enemyPos.Y - enemyTexture.Height - 40, healthbarOut.Width / 4, healthbarOut.Height / 4), Color.White);
             }
-            spriteBatch.Draw(enemyTexture, _enemyPos, null, Microsoft.Xna.Framework.Color.White, _enemyRot, new Vector2(enemyTexture.Width / 2, enemyTexture.Height / 2), 3.0f, SpriteEffects.None, 0);
+            spriteBatch.Draw(enemyTexture, _enemyPos, null, Microsoft.Xna.Framework.Color.White, _enemyRot, new Vector2(enemyTexture.Width / 2, enemyTexture.Height / 2), scale, SpriteEffects.None, 0);
             spriteBatch.End();
 
             foreach (Bullet b in bulletList)

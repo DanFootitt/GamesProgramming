@@ -5,42 +5,75 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace ZombieGame
 {
     class GameOverScreen : GameScreen
 
     {
-        Player player;
-        SpriteFont font;
-        Texture2D background;
-        string screenTitle;
-        string screenMessage;
-        Mouse mouse;
-        bool exitIntersect = false;
 
-        public GameOverScreen(Player player)
+        public enum gameOverType
         {
-            this.player = player;
+           GAMEOVER,
+           COMPLETE
+        }
+
+        Texture2D background;
+        Texture2D gameOver;
+        Mouse mouse;
+        MenuButton exitButton;
+        gameOverType got;
+        Player player;
+        SoundEffect sound;
+        Texture2D menuTitle;
+
+        public GameOverScreen(Player player, gameOverType gtt)
+        {
             IsPopup = false;
 
             TransitionOnTime = TimeSpan.FromSeconds(0.2);
-            TransitionOffTime = TimeSpan.FromSeconds(0.2); 
+            TransitionOffTime = TimeSpan.FromSeconds(0.2);
+
+            if (player != null)HighScores.sendScore(player.name, player.score);
+            got = gtt;
+            this.player = player;
+        }
+
+        public GameOverScreen()
+        {
+            IsPopup = false;
+
+            TransitionOnTime = TimeSpan.FromSeconds(0.2);
+            TransitionOffTime = TimeSpan.FromSeconds(0.2);
         }
 
 
         public override void LoadContent()
         {
             ContentManager content = ScreenManager.Game.Content;
-            font = content.Load<SpriteFont>("test");
-            background = content.Load<Texture2D>("images\\background");
-            Texture2D exit = content.Load<Texture2D>("images\\exitButton");
-            mouse = new Mouse(content, "images\\cursor_white");
-        }
+            background = content.Load<Texture2D>("backgrounds\\title");
+            if (got == gameOverType.GAMEOVER)
+            {
+                gameOver = content.Load<Texture2D>("zombie");
+                sound = content.Load<SoundEffect>("Sounds//gameover");
+                menuTitle = content.Load<Texture2D>("backgrounds\\gameover");
+            }
+            else
+            {
+                gameOver = content.Load<Texture2D>("backgrounds\\gamecomplete");
+                menuTitle = content.Load<Texture2D>("backgrounds\\victory");
+                sound = content.Load<SoundEffect>("Sounds//victory");
+            }
 
-        public override void HandleInput(InputState input)
-        {
-            
+            SoundEffect click = content.Load<SoundEffect>("Sounds\\ClickSound");
+            Texture2D norm = content.Load<Texture2D>("Buttons\\continueGlow");
+            Texture2D glow = content.Load<Texture2D>("Buttons\\continue");
+            exitButton = new MenuButton(glow, norm, new Vector2(800 / 2 - (norm.Width / 2), 530), click);
+
+            mouse = new Mouse(content, "cursor");
+
+            if (sound != null )sound.Play();
         }
 
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
@@ -48,17 +81,14 @@ namespace ZombieGame
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
             mouse.Update();
 
-                if (mouse.leftClick)
-                {   PlayerIndex playerindex = ControllingPlayer.Value;
-                ScreenManager.AddScreen(new BackgroundScreen(), playerindex);
-                    ScreenManager.AddScreen(new MainMenuScreen(),playerindex);
-
-                }
-            else
+            exitButton.Update(mouse.rectangle);
+            if (exitButton.Intersects(mouse.rectangle) && mouse.newLeftClick)
             {
-                exitIntersect = false;
-
+                exitButton.sound.Play();
+                ScreenManager.RemoveScreen(this);
+                ScreenManager.AddScreen(new HighScoreScreen(this.player), null);
             }
+
 
         }
 
@@ -77,15 +107,20 @@ namespace ZombieGame
 
             spriteBatch.Begin();
 
-            Vector2 messageV = font.MeasureString(screenMessage);
-            Vector2 titleV = font.MeasureString(screenTitle);
             spriteBatch.Draw(background, new Rectangle(0,0,background.Width,background.Height), color);
-            spriteBatch.DrawString(font, screenTitle, new Vector2(800 / 2 - titleV.X / 2, 20), color);
-            spriteBatch.DrawString(font, screenMessage, new Vector2(800 / 2 - messageV.X / 2, 120), color);
-            /*spriteBatch.DrawString(font, "Time : " + elapsedTime, new Vector2(300, 300), color);
-            spriteBatch.DrawString(font, "Score : " + player.playerScore.ToString() , new Vector2(300, 250), color);*/
+            spriteBatch.Draw(menuTitle, new Rectangle(400 - (menuTitle.Width / 2), 100, menuTitle.Width, menuTitle.Height), color);
+
+            int y = 0;
+            if (got == gameOverType.COMPLETE)
+                spriteBatch.Draw(gameOver, new Rectangle(400 - gameOver.Width / (2*2), 200, gameOver.Width / 2, gameOver.Height / 2), color);
+            else 
+                spriteBatch.Draw(gameOver, new Rectangle(400 - gameOver.Width / (2*2), 200, gameOver.Width / 2, gameOver.Height / 2), color);
+
+            
+
             spriteBatch.End();
 
+            exitButton.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
 
  

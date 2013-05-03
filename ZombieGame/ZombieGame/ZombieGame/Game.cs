@@ -1,50 +1,24 @@
-#region File Description
-//-----------------------------------------------------------------------------
-// Game.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
-
-#region Using Statements
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-#endregion
+
 
 namespace ZombieGame
 {
-    /// <summary>
-    /// Sample showing how to manage different game states, with transitions
-    /// between menu screens, a loading screen, the game itself, and a pause
-    /// menu. This main game class is extremely simple: all the interesting
-    /// stuff happens in the ScreenManager component.
-    /// </summary>
-    public class GameStateManagementGame : Microsoft.Xna.Framework.Game
+
+    public class ZombieGame : Microsoft.Xna.Framework.Game
     {
-        #region Fields
 
         GraphicsDeviceManager graphics;
         ScreenManager screenManager;
 
-
-        // By preloading any assets used by UI rendering, we avoid framerate glitches
-        // when they suddenly need to be loaded in the middle of a menu transition.
         static readonly string[] preloadAssets =
         {
 
         };
 
-        
-        #endregion
-
-        #region Initialization
 
 
-        /// <summary>
-        /// The main game constructor.
-        /// </summary>
-        public GameStateManagementGame()
+        public ZombieGame()
         {
             Content.RootDirectory = "Content";
 
@@ -52,19 +26,19 @@ namespace ZombieGame
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 600;
 
-            // Create the screen manager component.
             screenManager = new ScreenManager(this);
 
             Components.Add(screenManager);
 
             screenManager.AddScreen(new SplashScreen(SplashScreen.splashScreenType.studio), null);
-            //screenManager.AddScreen(new GamePlayScreen(), null);
+            //screenManager.AddScreen(new NameEntryScreen(), null); 
+            //screenManager.AddScreen(new InstructionsScreen(), null);
+            //screenManager.AddScreen(new GameOverScreen(null, GameOverScreen.gameOverType.COMPLETE), null);
+            //screenManager.AddScreen(new LevelCompleteScreen(100, 10, 3, GameDifficulty.EASY_MODE, 80.0f), null);
+            //screenManager.AddScreen(new GamePlayScreen(GameDifficulty.EASY_MODE), null);
+            //screenManager.AddScreen(new HighScoreScreen(), null);
         }
 
-
-        /// <summary>
-        /// Loads graphics content.
-        /// </summary>
         protected override void LoadContent()
         {
             foreach (string asset in preloadAssets)
@@ -74,42 +48,24 @@ namespace ZombieGame
         }
 
 
-        #endregion
-
-        #region Draw
-
-
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.Black);
-
-            // The real drawing happens inside the screen manager component.
             base.Draw(gameTime);
         }
 
-
-        #endregion
     }
 
 
-    #region Entry Point
-
-    /// <summary>
-    /// The main entry point for the application.
-    /// </summary>
     static class Program
     {
         static void Main()
         {
-            using (GameStateManagementGame game = new GameStateManagementGame())
+            using (ZombieGame game = new ZombieGame())
             {
                 game.Run();
             }
         }
-    }
 
-    #endregion
+    }
 }

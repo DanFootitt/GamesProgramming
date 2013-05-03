@@ -1,4 +1,0 @@
-GamesProgramming
-================
-
-Games Programming Repository
